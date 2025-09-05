@@ -20,6 +20,8 @@ match estacion:
     case "primavera":
         print("Se viaja a todos los lugares menos Bariloche")
     case _:
+        print('Estación no válida')
         print("No se viaja")
+
 
         
