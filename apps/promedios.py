@@ -10,8 +10,7 @@ def promedio_estudiantes() -> None:
     Esta función no retorna ningún valor, solo imprime
     el promedio de notas de cada estudiante
 
-    Arg:
-         -ninguno
+    Arg: Ninguno
 
     Return: None
     
