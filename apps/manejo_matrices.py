@@ -75,6 +75,7 @@ def el_cuadrado_magico() -> None:
     #declaraciones
     #lista_valores = []
     valor = 0
+    
 
     print(f'------------------')
     print(f'EL CUADRADO MAGICO')
@@ -83,51 +84,78 @@ def el_cuadrado_magico() -> None:
 
 
     n = ingresar_elemento()
-    total_elementos = n**2
-    bandera = True
-    print(n)
-    #darla tamaño a la lista
-    lista_valores = [0]*total_elementos #crear_matriz(0,total_elementos,0)
-    print(f'MI LISTA INICIAL ES: ')
-    for columna in range(len(lista_valores)):
-        print(lista_valores[columna])
-    print(len(lista_valores))
+    if not n > 0:
+        print('El valor de n no es un número entero')
+       
+    else: 
+        
+        total_elementos = n**2
+        print(n)
+        #darla tamaño a la lista
+        lista_valores = [0]*total_elementos #crear_matriz(0,total_elementos,0)
+        print(f'MI LISTA INICIAL ES: ')
+        for columna in range(len(lista_valores)):
+            print(lista_valores[columna])
+        print(len(lista_valores))
 
-
-    #m = (n(n**2 + 1))/2 #Constante mágica
-    #print(m)
-    #AQUI VALIDAMOS QUE EL TAMAÑO SEA n*n
-    matriz = crear_matriz(n,n,0)
-    
-    #Modificar la Matriz
-    for fila in range(len(matriz)): 
-        for columna in range(len(matriz[fila])):
-            #validar que esté en 1 y total_elemento, y no se repita (USamos una lista
-            # para no evitar repetir).
-                #while bandera: #ASEGURAMOS INGRESAR EL VALOR VALIDADO
-                    print(f'fila {fila} - columna {columna}')
-                    el_elemento = ingresar_elemento()
+        
+        m = (n*(total_elementos + 1))/2 #Constante mágica
+        print(m)
+        #AQUI VALIDAMOS QUE EL TAMAÑO SEA n*n
+        matriz = crear_matriz(n,n,0)
+        print(len(matriz))
+        print(len(matriz[0]))
+        #Modificar la Matriz
+        for fila in range(len(matriz)): 
+            
+            for columna in range(len(matriz[0])):
+                #validar que esté en 1 y total_elemento, y no se repita (USamos una lista
+                # para no evitar repetir).
                     
-                    if el_elemento >= 1 and el_elemento <= total_elementos:
-                        for i in range(len(lista_valores)):
-                            print(f'lista valores')
-                            if el_elemento == lista_valores[i]: #VERIFICA QUE NO ESTE REPETIDO
-                                print(f'EL NUMERO ESTÁ REPETIDO, INGRESA DE NUEVO')
-                                #bandera = True
-                            else:  #VERIFICA ESTE DENTRO DEL RANGO
-                                print(f'ALMACENA')
-                                lista_valores[valor] = el_elemento
-                                valor += 1
-                                #ALMACENA EN MATRIZ.
-                                matriz[fila][columna] = el_elemento
-                                #bandera = False
-                        valor = 0  
-                    else: 
-                        print(f'Valor fuera de rango, ingrese otro')
+                    repetido = False
+                    bandera = True
+                    while bandera == True: #ASEGURAMOS INGRESAR EL VALOR VALIDADO
+                        print(matriz)
+                        print(lista_valores)
+                        print(f'fila {fila} - columna {columna}')
+                        el_elemento = ingresar_elemento()
+                        #VERIFICA ESTE DENTRO DEL RANGO
+                        print(f'Verificando Rango...')
+                        if el_elemento >= 1 and el_elemento <= total_elementos:
+                            print(f'rango correcto...')
+                            #VERIFICA QUE NO ESTE REPETIDO
+                            print(f'Verificando Repetidos...')
+                            
+                            for i in range(len(lista_valores)):
+                                
+                                #EL ERROR ERA EN ESTA COMPARACIÓN.
+                                if el_elemento == lista_valores[i]:
+                                    print(f'EL NUMERO ESTÁ REPETIDO, INGRESA DE NUEVO')
+                                    
+                                    repetido = True
+                                    break #FALTABA UN BREAK, SI ESTABA REPETIDO, ROMPE Y REPITE CICLO WHILE.
+                                    
+                                else: 
+                                    
+                                    print(f'Almacenando nuevo valor...')
+                                    repetido = False #ACÁ ALMACENA EL VALOR Y COMPARA PARA TERMINAR CICLO.
+                                    
+                                    
+                        else: 
+                            print(f'Valor fuera de rango, ingrese otro')
 
-    
+                        if repetido == False:
+                            lista_valores[valor] = el_elemento
+                            matriz[fila][columna] = el_elemento  
+                            #ALMACENA UNA VEZ.
+                            #LUEGO EL OTRO ERROR ESTABA AQUI. NO AUMENTABA EL VALOR EN EL LUGAR CORRECTO.    
+                            valor +=1
+                            print('Almacenado nuevo valor en la lista...')
+                            bandera = False
+                        
+        
 
-    print(matriz) 
+        print(matriz) 
 
 
     #modificar_matriz(matriz)

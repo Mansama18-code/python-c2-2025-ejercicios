@@ -21,7 +21,7 @@ def imprimir_matriz(matriz: list) -> None:
 
 def verificar_punto(cadena: str) -> str:
     """
-    Función para verificar si una cadena tiene un punto decimal.
+    Función para verificar si una cadena es Texto o Número Entero, Flotante, negativo o positivo  y Booleano.
     
     Args: Recibe una cadena de texto.
     
@@ -29,24 +29,48 @@ def verificar_punto(cadena: str) -> str:
     
     """
     i = 0
+    punto = 1
     bandera = True
     respuesta = 'cadena'
-    while bandera:
-        
-            if cadena.count('.') == 1:
-                respuesta = 'flotante'
-                bandera = False
-            elif cadena == "True" or cadena == "False":
-                respuesta = 'booleano'
-                bandera = False
-            elif ord(cadena[i]) >= 48 and ord(cadena[i]) <= 57:
-                i += 1
-                if i == len(cadena):
-                    respuesta = 'entero'
-                    bandera = False
-            else: 
+    while bandera == True:
+            if cadena[i] == ' ':
+
                 respuesta = 'cadena'
                 bandera = False
+
+            elif cadena[0] == '-':
+
+                if ord(cadena[i]) == 46 and punto == 1:
+                    punto = 0
+                    respuesta = 'flotante'
+                    bandera = False
+                elif cadena == "True" or cadena == "False":
+                    respuesta = 'booleano'
+                    bandera = False
+                elif ord(cadena[i]) >= 48 and ord(cadena[i]) <= 57:
+                    i += 1
+                    if i == len(cadena):
+                        respuesta = 'entero'
+                        bandera = False
+                else:
+                    i +=1
+            else: 
+
+                if ord(cadena[i]) == 46 and punto == 1:
+                    punto = 0
+                    respuesta = 'flotante'
+                    bandera = False
+                elif cadena == "True" or cadena == "False":
+                    respuesta = 'booleano'
+                    bandera = False
+                elif ord(cadena[i]) >= 48 and ord(cadena[i]) <= 57:
+                    i += 1
+                    if i == len(cadena):
+                        respuesta = 'entero'
+                        bandera = False
+                else: 
+                    respuesta = 'cadena'
+                    bandera = False
         
     return respuesta
 
@@ -59,12 +83,12 @@ def ingresar_elemento() -> any:
     Returns: El elemento ingresado parseado.
     """
 
-    elemento = input(" ")
+    elemento = input("")
 
-    #ord()
+   
     #respuesta es verificar que tenga un punto.
     respuesta = verificar_punto(elemento)
-    #print(f'LA RESPUESTA ES: {respuesta}')
+    print(f'LA RESPUESTA ES: {respuesta}')
 
     match (respuesta):
 
