@@ -71,14 +71,17 @@ def manejar_matrices() -> None:
 
 
 def el_cuadrado_magico() -> None: 
-
+    """
+    Esta función se desarrolla un programa que permita ingresar una matriz cuadrada de orden n y determine si es un cuadrado mágico.
+    
+    """
     #declaraciones
     #lista_valores = []
     valor = 0
     
 
     print(f'------------------')
-    print(f'EL CUADRADO MAGICO')
+    print(f'BIENVENIDO A EL CUADRADO MAGICO')
     print(f'------------------')
     print(f'ingrese el valor de n')
 
@@ -99,8 +102,7 @@ def el_cuadrado_magico() -> None:
         print(len(lista_valores))
 
         
-        m = (n*(total_elementos + 1))/2 #Constante mágica
-        print(m)
+       
         #AQUI VALIDAMOS QUE EL TAMAÑO SEA n*n
         matriz = crear_matriz(n,n,0)
         print(len(matriz))
@@ -155,9 +157,25 @@ def el_cuadrado_magico() -> None:
                         
         
 
-        print(matriz) 
+        #Calcular 
+        cada_fila = 0
+        cada_columna = 0
+        cada_diagonal = 0
+
+        m = (n*(total_elementos + 1))/2 #Constante mágica
+        print(m)
+
+        if cada_fila == m and cada_columna == m and cada_diagonal == m:
+            print('Es un Cuadrado Mágico')
+            print(f'La Constante Mágica m es: {m}')
+        else: 
+            print('NO es un Cuadrado Mágico')
+        
+        imprimir_matriz(matriz)
+        print(f'La Constante Mágica m es: {m}, las filas suman {cada_fila}, las columnas suman {cada_columna} y las diagonales suman {cada_diagonal}')
 
 
-    #modificar_matriz(matriz)
+
+   #AHORA,ESTE PROGRAMA PUEDE PARAMETRIZARSE MEJOR. ¿CÓMO LO HARÍAN?
 
 
