@@ -32,10 +32,7 @@ def verificar_punto(cadena: str) -> str:
     bandera = True
     respuesta = 'cadena'
     while bandera:
-        if cadena[i] == '-':
-            
-            pass
-        else: 
+        
             if cadena.count('.') == 1:
                 respuesta = 'flotante'
                 bandera = False
@@ -43,14 +40,14 @@ def verificar_punto(cadena: str) -> str:
                 respuesta = 'booleano'
                 bandera = False
             elif ord(cadena[i]) >= 48 and ord(cadena[i]) <= 57:
-                #i += 1
+                i += 1
                 if i == len(cadena):
                     respuesta = 'entero'
                     bandera = False
             else: 
                 respuesta = 'cadena'
                 bandera = False
-        i += 1
+        
     return respuesta
 
 def ingresar_elemento() -> any: 
@@ -62,7 +59,7 @@ def ingresar_elemento() -> any:
     Returns: El elemento ingresado parseado.
     """
 
-    elemento = input("Ingrese el elemento a agregar: ")
+    elemento = input(" ")
 
     #ord()
     #respuesta es verificar que tenga un punto.
@@ -156,6 +153,15 @@ def multiplicar_matriz_escalar(matriz, escalar) -> list:
             matriz_resultado[i][j] = matriz[i][j] * escalar
     
     return matriz_resultado
+
+
+
+
+
+
+
+
+
 
 def multiplicar_matrices(matriz1, matriz2) -> list:
 
