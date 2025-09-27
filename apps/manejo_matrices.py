@@ -142,37 +142,67 @@ def el_cuadrado_magico() -> None:
                                     print(f'Almacenando nuevo valor...')
                                     repetido = False #ACÁ ALMACENA EL VALOR Y COMPARA PARA TERMINAR CICLO.
                                     
-                                    
+                            if repetido == False:
+                                lista_valores[valor] = el_elemento
+                                matriz[fila][columna] = el_elemento  
+                                #ALMACENA UNA VEZ.
+                                #LUEGO EL OTRO ERROR ESTABA AQUI. NO AUMENTABA EL VALOR EN EL LUGAR CORRECTO.    
+                                valor +=1
+                                print('Almacenado nuevo valor en la lista...')
+                                bandera = False
+
+
                         else: 
                             print(f'Valor fuera de rango, ingrese otro')
 
-                        if repetido == False:
-                            lista_valores[valor] = el_elemento
-                            matriz[fila][columna] = el_elemento  
-                            #ALMACENA UNA VEZ.
-                            #LUEGO EL OTRO ERROR ESTABA AQUI. NO AUMENTABA EL VALOR EN EL LUGAR CORRECTO.    
-                            valor +=1
-                            print('Almacenado nuevo valor en la lista...')
-                            bandera = False
+                        
                         
         
 
         #Calcular 
-        cada_fila = 0
-        cada_columna = 0
+        cada_fila = [0]*n
+        cada_columna = [0]*n
         cada_diagonal = 0
+        cada_diagonal2 = 0
 
-        m = (n*(total_elementos + 1))/2 #Constante mágica
+        #SUMA de FILAS
+        for fila in range(len(matriz)): 
+            for columna in range(len(matriz[0])): 
+                cada_fila[fila] += matriz[fila][columna]   
+
+        
+        #SUMA de COLUMNAS 
+        for fila in range(len(matriz)): 
+            for columna in range(len(matriz[0])): 
+                cada_columna[fila] += matriz[columna][fila]
+
+        print('TAMANO',len(matriz)-1)
+        #SUMA de DIAGONAL 1
+        for fila in range(len(matriz)): 
+                x = len(matriz) - fila - 1
+                print('TAMANIO DE MATRIZ',x)
+                cada_diagonal += matriz[fila][fila]
+                cada_diagonal2 += matriz[x][x]
+
+
+        m = (n*(total_elementos + 1))//2 #Constante mágica
         print(m)
 
-        if cada_fila == m and cada_columna == m and cada_diagonal == m:
-            print('Es un Cuadrado Mágico')
-            print(f'La Constante Mágica m es: {m}')
+        bandera = False
+        for i in range(len(matriz)):
+            if cada_fila[i] == m and cada_columna[i] == m and cada_diagonal == m and cada_diagonal2 == m:
+                bandera = True
+               
+            else: 
+                bandera = False
+        mensaje = f'un Cuadrado Mágico. La Constante Mágica m es: {m}, las filas suman {cada_fila}, las columnas suman {cada_columna} y las diagonales suman {cada_diagonal}, {cada_diagonal2}, la matriz es: '
+        if bandera == True: 
+            mensaje = f'Es' + mensaje
         else: 
-            print('NO es un Cuadrado Mágico')
-        
+            mensaje = f'No es' + mensaje
+
+        print(mensaje)
         imprimir_matriz(matriz)
-        print(f'La Constante Mágica m es: {m}, las filas suman {cada_fila}, las columnas suman {cada_columna} y las diagonales suman {cada_diagonal}')
 
 
 
