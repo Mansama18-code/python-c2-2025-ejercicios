@@ -1,3 +1,5 @@
+from utiles.validaciones import ingresar_elemento
+
 def crear_matriz(filas: int, columnas: int, valor_inicial:any) -> list:
 
     matriz = []
@@ -8,133 +10,30 @@ def crear_matriz(filas: int, columnas: int, valor_inicial:any) -> list:
     
     return matriz
 
+def crear_lista(filas: int, columnas: int, valor_inicial:any) -> list:
+
+    lista = []
+    
+    for i in range(filas):
+           filas = [valor_inicial] * columnas
+           lista += filas
+    
+    return lista
 
 
 def imprimir_matriz(matriz: list) -> None:
     
     for i in range(len(matriz)):
         for j in range(len(matriz[i])):
-            print(f"{matriz[i][j]}     ", end=" ")
+            print(f"{matriz[i][j]}\t", end=" ")
         print()
 
 
-<<<<<<< HEAD
 def imprimir_lista(lista: list) -> None:
     
     for i in range(len(lista)):
-            print(f"{lista[i]}     ", end=" ")
+            print(f"{lista[i]}\t", end=" ")
     
-=======
->>>>>>> 37a99a19e0a15a86c70d3a5e8598c870069ca75a
-
-def verificar_punto(cadena: str) -> str:
-    """
-    Función para verificar si una cadena es Texto o Número Entero, Flotante, negativo o positivo  y Booleano.
-    
-    Args: Recibe una cadena de texto.
-    
-    Returns: 'entero' si es un entero, 'flotante' si es un flotante, 'bool' si es un booleano, 'cadena' si es una cadena.
-    
-    """
-    i = 0
-    punto = 1
-    bandera = True
-    respuesta = 'cadena'
-    while bandera == True:
-<<<<<<< HEAD
-            if cadena[0] == '-':
-=======
-            if cadena[i] == ' ':
-
-                respuesta = 'cadena'
-                bandera = False
-
-            elif cadena[0] == '-':
->>>>>>> 37a99a19e0a15a86c70d3a5e8598c870069ca75a
-
-                if ord(cadena[i]) == 46 and punto == 1:
-                    punto = 0
-                    respuesta = 'flotante'
-                    bandera = False
-                elif cadena == "True" or cadena == "False":
-                    respuesta = 'booleano'
-                    bandera = False
-                elif ord(cadena[i]) >= 48 and ord(cadena[i]) <= 57:
-                    i += 1
-                    if i == len(cadena):
-                        respuesta = 'entero'
-                        bandera = False
-                else:
-                    i +=1
-            else: 
-
-                if ord(cadena[i]) == 46 and punto == 1:
-                    punto = 0
-                    respuesta = 'flotante'
-                    bandera = False
-                elif cadena == "True" or cadena == "False":
-                    respuesta = 'booleano'
-                    bandera = False
-                elif ord(cadena[i]) >= 48 and ord(cadena[i]) <= 57:
-                    i += 1
-                    if i == len(cadena):
-                        respuesta = 'entero'
-                        bandera = False
-                else: 
-                    respuesta = 'cadena'
-                    bandera = False
-        
-    return respuesta
-
-<<<<<<< HEAD
-
-def ingresar_elemento(mensaje: str) -> any: 
-=======
-def ingresar_elemento() -> any: 
->>>>>>> 37a99a19e0a15a86c70d3a5e8598c870069ca75a
-    """
-    Función para ingresar un elemento a la matriz
-    
-    Args: No recibe 
-    
-    Returns: El elemento ingresado parseado.
-    """
-
-<<<<<<< HEAD
-    elemento = input(mensaje)
-=======
-    elemento = input("")
->>>>>>> 37a99a19e0a15a86c70d3a5e8598c870069ca75a
-
-   
-    #respuesta es verificar que tenga un punto.
-    respuesta = verificar_punto(elemento)
-    print(f'LA RESPUESTA ES: {respuesta}')
-
-    match (respuesta):
-
-        #INT
-        case 'entero':
-            elemento = int(elemento)
-
-        #FLOAT
-        case 'flotante':
-            elemento = float(elemento)
-            
-        # BOOL
-        case "True" | "False": 
-            if elemento == "True":
-                elemento = bool(True)
-            else: 
-                elemento = bool(False)
-        
-        case _:
-            pass
-            #print("El elemento se guardará como cadena de texto")
-             
-
-
-    return elemento
 
 
 
@@ -142,11 +41,7 @@ def modificar_matriz(matriz) -> None:
          
     for i in range(len(matriz)):
         for j in range(len(matriz[i])):
-<<<<<<< HEAD
             matriz[i][j] = ingresar_elemento(f'Ingrese el elemento a modificar en {i} y {j}:')
-=======
-            matriz[i][j] = ingresar_elemento()
->>>>>>> 37a99a19e0a15a86c70d3a5e8598c870069ca75a
     
     #return matriz
 
@@ -157,6 +52,7 @@ def buscar_elemento(matriz, elemento) -> bool:
             if matriz[i][j] == elemento:
                 respuesta = True
     return respuesta
+
 
 def eliminar_elemento(matriz, elemento) -> list:
 
