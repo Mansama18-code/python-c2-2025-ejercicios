@@ -18,11 +18,14 @@ def imprimir_matriz(matriz: list) -> None:
         print()
 
 
+<<<<<<< HEAD
 def imprimir_lista(lista: list) -> None:
     
     for i in range(len(lista)):
             print(f"{lista[i]}     ", end=" ")
     
+=======
+>>>>>>> 37a99a19e0a15a86c70d3a5e8598c870069ca75a
 
 def verificar_punto(cadena: str) -> str:
     """
@@ -38,7 +41,16 @@ def verificar_punto(cadena: str) -> str:
     bandera = True
     respuesta = 'cadena'
     while bandera == True:
+<<<<<<< HEAD
             if cadena[0] == '-':
+=======
+            if cadena[i] == ' ':
+
+                respuesta = 'cadena'
+                bandera = False
+
+            elif cadena[0] == '-':
+>>>>>>> 37a99a19e0a15a86c70d3a5e8598c870069ca75a
 
                 if ord(cadena[i]) == 46 and punto == 1:
                     punto = 0
@@ -74,8 +86,12 @@ def verificar_punto(cadena: str) -> str:
         
     return respuesta
 
+<<<<<<< HEAD
 
 def ingresar_elemento(mensaje: str) -> any: 
+=======
+def ingresar_elemento() -> any: 
+>>>>>>> 37a99a19e0a15a86c70d3a5e8598c870069ca75a
     """
     Función para ingresar un elemento a la matriz
     
@@ -84,7 +100,11 @@ def ingresar_elemento(mensaje: str) -> any:
     Returns: El elemento ingresado parseado.
     """
 
+<<<<<<< HEAD
     elemento = input(mensaje)
+=======
+    elemento = input("")
+>>>>>>> 37a99a19e0a15a86c70d3a5e8598c870069ca75a
 
    
     #respuesta es verificar que tenga un punto.
@@ -122,7 +142,11 @@ def modificar_matriz(matriz) -> None:
          
     for i in range(len(matriz)):
         for j in range(len(matriz[i])):
+<<<<<<< HEAD
             matriz[i][j] = ingresar_elemento(f'Ingrese el elemento a modificar en {i} y {j}:')
+=======
+            matriz[i][j] = ingresar_elemento()
+>>>>>>> 37a99a19e0a15a86c70d3a5e8598c870069ca75a
     
     #return matriz
 

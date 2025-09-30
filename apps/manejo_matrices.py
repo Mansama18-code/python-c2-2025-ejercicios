@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 from ejercicios_matrices.funciones_matriz import crear_matriz, modificar_matriz, imprimir_matriz,  ingresar_elemento, imprimir_lista
 from ejercicios_matrices.validar_matriz import *
+=======
+from ejercicios_matrices.funciones_matriz import crear_matriz, modificar_matriz, imprimir_matriz, sumar_matrices, multiplicar_matriz_escalar, buscar_elemento, eliminar_elemento, multiplicar_matrices, ingresar_elemento
+>>>>>>> 37a99a19e0a15a86c70d3a5e8598c870069ca75a
 
 
 
@@ -84,10 +88,17 @@ def el_cuadrado_magico() -> None:
     print(f'------------------')
     print(f'BIENVENIDO A EL CUADRADO MAGICO')
     print(f'------------------')
+<<<<<<< HEAD
  
 
 
     n = ingresar_elemento('ingrese el valor de n')
+=======
+    print(f'ingrese el valor de n')
+
+
+    n = ingresar_elemento()
+>>>>>>> 37a99a19e0a15a86c70d3a5e8598c870069ca75a
     if not n > 0:
         print('El valor de n no es un número entero')
        
@@ -177,27 +188,44 @@ def el_cuadrado_magico() -> None:
             for columna in range(len(matriz[0])): 
                 cada_columna[fila] += matriz[columna][fila]
 
+<<<<<<< HEAD
         
         #SUMA de DIAGONAL 1
         for fila in range(len(matriz)): 
                 x = len(matriz) - fila - 1
                 
+=======
+        print('TAMANO',len(matriz)-1)
+        #SUMA de DIAGONAL 1
+        for fila in range(len(matriz)): 
+                x = len(matriz) - fila - 1
+                print('TAMANIO DE MATRIZ',x)
+>>>>>>> 37a99a19e0a15a86c70d3a5e8598c870069ca75a
                 cada_diagonal += matriz[fila][fila]
                 cada_diagonal2 += matriz[x][x]
 
 
         m = (n*(total_elementos + 1))//2 #Constante mágica
+<<<<<<< HEAD
 
 
         bandera = False
 
+=======
+        print(m)
+
+        bandera = False
+>>>>>>> 37a99a19e0a15a86c70d3a5e8598c870069ca75a
         for i in range(len(matriz)):
             if cada_fila[i] == m and cada_columna[i] == m and cada_diagonal == m and cada_diagonal2 == m:
                 bandera = True
                
             else: 
                 bandera = False
+<<<<<<< HEAD
 
+=======
+>>>>>>> 37a99a19e0a15a86c70d3a5e8598c870069ca75a
         mensaje = f'un Cuadrado Mágico. La Constante Mágica m es: {m}, las filas suman {cada_fila}, las columnas suman {cada_columna} y las diagonales suman {cada_diagonal}, {cada_diagonal2}, la matriz es: '
         if bandera == True: 
             mensaje = f'Es' + mensaje
@@ -212,6 +240,7 @@ def el_cuadrado_magico() -> None:
    #AHORA,ESTE PROGRAMA PUEDE PARAMETRIZARSE MEJOR. ¿CÓMO LO HARÍAN?
 
 
+<<<<<<< HEAD
 
 
 
@@ -330,3 +359,5 @@ def el_cuadrado_magico_funcional() -> None:
    #AHORA,ESTE PROGRAMA PUEDE PARAMETRIZARSE MEJOR. ¿CÓMO LO HARÍAN?
 
 
+=======
+>>>>>>> 37a99a19e0a15a86c70d3a5e8598c870069ca75a

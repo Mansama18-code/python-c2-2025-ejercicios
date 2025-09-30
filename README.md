@@ -7,4 +7,7 @@ Primer práctica:
   -MATCH
   -DESAFIO
   -EJERCICIOS EXTRAS
+  -Ejercicios de Funciones
+  -Ejercicios de While y For
+  -
 
